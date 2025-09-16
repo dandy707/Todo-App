@@ -1,0 +1,550 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+body {
+  background-color: hsl(235, 21%, 11%);
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.header .header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: -1px;
+}
+
+.overlay {
+  position: absolute;
+  top: -3.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.overlay img {
+  height: 35px;
+  width: 35px;
+}
+
+.overlay h1 {
+  color: hsl(0, 0%, 98%);
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.form-on-image {
+  position: absolute;
+  bottom: 2.5rem; /* pushes input just below image area */
+  left: 55%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input-wrapper input {
+  width: 70%;
+  height: 100%;
+  padding: 1rem 1rem 0.75rem 3rem;
+  background-color: hsl(235, 24%, 19%);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1.3rem;
+  color: hsl(234, 39%, 85%);
+}
+
+.input-wrapper input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+  color: hsl(235, 16%, 43%);
+  opacity: 1;
+}
+
+.circle {
+  position: absolute;
+  left: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid hsl(237, 14%, 26%);
+  background-color: hsl(235, 24%, 19%);
+  cursor: pointer;
+}
+
+.list-items {
+  width: 40%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: -2.5rem; /* pulls box upward into header */
+  z-index: 2; /* ensure it sits above image */
+  padding: 0;
+  font-size: 18px;
+  color: hsl(234, 39%, 85%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.list-items .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left group vs cross */
+  padding: 0.1rem 0;
+  width: 100%;
+  border-bottom: 1px solid hsl(237, 14%, 26%);
+}
+
+.list-items .list .todo-left {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.9rem;
+  margin-left: 1rem;
+}
+
+.todo-left .circles {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid hsl(237, 14%, 26%);
+  background-color: hsl(235, 24%, 19%);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.todo-left .circles:focus {
+  outline: none;
+  border: 2px solid transparent; /* transparent fallback */
+  background: linear-gradient(hsl(235, 24%, 19%), hsl(235, 24%, 19%))
+      padding-box,
+    /* inner fill */
+      linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%))
+      border-box; /* border */
+}
+
+.todo-left .img-checked {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-left .checked {
+  text-decoration: line-through;
+  color: hsl(233, 14%, 35%);
+}
+
+.todo-left .img-checked img {
+  height: 9px;
+  width: 9px;
+}
+
+.todo-item .icon-cross {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.todo-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.3rem 1rem;
+  margin: 0;
+  border-top: 1px solid hsl(237, 14%, 26%);
+}
+
+.todo-item-bottom .all-active {
+  display: flex;
+  gap: 1rem;
+}
+
+.todo-item-bottom .all-active p:focus {
+  outline: none;
+  border: none;
+  color: hsl(220, 98%, 61%);
+}
+
+.todo-item-bottom .all-active p {
+  cursor: pointer;
+}
+
+.clear-completed {
+  cursor: pointer;
+}
+
+.todo-item-bottom .active-filter {
+  color: hsl(220, 98%, 61%); /* nice blue highlight */
+  font-weight: bold;
+}
+.footer p {
+  margin-top: 30px;
+  font-size: 18px;
+  color: hsl(233, 14%, 35%);
+}
+
+/*Light theme */
+
+body.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+.app-container.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(235, 19%, 35%);
+}
+
+.input-wrapper input.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+}
+
+.input-wrapper .circle.light {
+  border: 2px solid hsl(233, 11%, 84%);
+  background-color: hsl(0, 0%, 98%);
+}
+
+.list-items.light {
+  background-color: hsl(0, 0%, 98%);
+
+  color: hsl(235, 19%, 35%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-item.light {
+  border-bottom: 1px solid hsl(236, 33%, 92%);
+}
+
+.todo-left .checked.light {
+  text-decoration: line-through;
+
+  color: hsl(234, 39%, 90%);
+}
+
+.todo-left .circles.light {
+  border: 2px solid hsl(233, 11%, 84%);
+  background-color: hsl(0, 0%, 98%);
+}
+
+.todo-item-bottom.light {
+  color: hsl(236, 9%, 61%);
+  border-top: 1px solid hsl(236, 33%, 92%);
+}
+
+.todo-item-bottom .all-active.light {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(236, 9%, 61%);
+}
+
+/*Responsive Designs */
+
+@media (max-width: 1115px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+  .overlay {
+    width: 50%;
+  }
+
+  .form-on-image {
+    width: 60%;
+  }
+
+  .list-items {
+    width: 50%;
+  }
+
+  .input-wrapper input {
+    width: 75%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+  .overlay {
+    width: 60%;
+  }
+
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 73%;
+  }
+
+  .list-items {
+    width: 65%;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 865px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+
+  .overlay {
+    width: 65%;
+  }
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 73%;
+  }
+
+  .list-items {
+    width: 65%;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+
+  .overlay {
+    width: 65%;
+  }
+
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 78%;
+  }
+
+  .list-items {
+    width: 70%;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 699px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+
+  .overlay {
+    width: 75%;
+  }
+
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 87%;
+  }
+
+  .list-items {
+    width: 80%;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 610px) {
+  .header .header-img {
+    width: 100%;
+    height: 40vh;
+    display: block;
+    z-index: -1px;
+  }
+
+  .overlay {
+    width: 80%;
+  }
+
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 97%;
+  }
+
+  .list-items {
+    width: 85%;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 590px) {
+  .overlay {
+    width: 80%;
+  }
+
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 97%;
+  }
+
+  .list-items {
+    width: 85%;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+
+  .input-wrapper input {
+    width: 77%;
+    height: 100%;
+  }
+
+  .todo-item-bottom .all-active {
+    position: absolute;
+    bottom: -5rem; /* pushes it below the box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* take full width */
+    margin: 1rem auto;
+    background-color: hsl(235, 24%, 19%); /* or body bg if you want */
+    border-radius: 5px;
+    gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 490px) {
+  .list-items {
+    width: 93%;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+}
+
+@media (max-width: 390px) {
+  .overlay h1 {
+    color: hsl(0, 0%, 98%);
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  .form-on-image {
+    width: 100%;
+  }
+
+  .input-wrapper input {
+    width: 75%;
+    height: 100%;
+  }
+
+  .list-items {
+    width: 93%;
+    margin-bottom: 3.5rem;
+    position: relative;
+  }
+}
+
+@media (max-width: 361px) {
+  .form-on-image {
+    width: 97%;
+  }
+
+  .input-wrapper input {
+    width: 80%;
+    padding: 0.5rem 0.5rem 0.4rem 2rem;
+  }
+}
