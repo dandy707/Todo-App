@@ -190,6 +190,21 @@ body {
   width: 9px;
 }
 
+.time-input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid hsl(237, 14%, 26%);
+  background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+.time-input.small {
+  width: 70px;
+  height: 26px;
+  font-size: 0.8rem;
+}
 .todo-item .icon-cross {
   margin-right: 1rem;
   cursor: pointer;

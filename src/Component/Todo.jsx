@@ -3,6 +3,8 @@ import iconCross from "../assets/icon-cross.svg";
 import iconCheck from "../assets/icon-check.svg";
 
 function Todo({
+  todos,
+  setTodos,
   isLight,
   removeTodo,
   toggleTodo,
@@ -42,7 +44,25 @@ function Todo({
                   {todo.text}
                 </p>
               </div>
-
+              {/*Editable Time Input */}
+              <input
+                type="time"
+                className="time-input small"
+                value={todo.time || ""}
+                onChange={(e) => {
+                  const newTime = e.target.value;
+                  const originalIndex = todos.findIndex((t) => t === todo); // works if the todo objects are the same references
+                  if (originalIndex === -1) return;
+                  const newTodos = [...todos];
+                  newTodos[originalIndex] = {
+                    ...newTodos[originalIndex],
+                    time: newTime,
+                    notified: false,
+                    reminder: true,
+                  };
+                  setTodos(newTodos);
+                }}
+              />
               <img
                 src={iconCross}
                 alt="Icon Cross"
