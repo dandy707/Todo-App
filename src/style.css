@@ -418,6 +418,12 @@ body.light {
     width: 77%;
     height: 100%;
   }
+
+  .time-input.small {
+    width: 70px;
+    height: 26px;
+    font-size: 0.6rem;
+  }
 }
 
 @media (max-width: 699px) {
